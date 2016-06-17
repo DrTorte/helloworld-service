@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>helloMaven</groupId>
+    <artifactId>helloMaven</artifactId>
+    <version>1.1-SNAPSHOT</version>
+
+    <scm>
+        <developerConnection>scm:git:ssh://skydev03:8444/hel/hellomaven.git</developerConnection>
+        <connection>scm:git:ssh://skydev03:8444/hel/hellomaven.git</connection>
+        <url>http://skydev03/bitbucket/projects/HEL/repos/hellomaven/browse</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.5</version>
+                <executions>
+                    <execution>
+                        <id>auto-clean</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <tagBase>scm:git:http://skydev03/bitbucket/scm/hel/hellomaven.git</tagBase>
+                    <tagNameFormat>@{project.version}</tagNameFormat>
+                    <username>rdarocha</username>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>hello</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>sky-releases</id>
+            <name>SKY Release Repository</name>
+            <url> http://skydev03.skytv.co.nz/artifactory/sky-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>sky-snapshots</id>
+            <name>SKY Snapshot Repository</name>
+            <url>http://skydev03.skytv.co.nz/artifactory/sky-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
