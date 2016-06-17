@@ -44,7 +44,8 @@
                 <configuration>
                     <tagBase>scm:git:http://skydev03/bitbucket/scm/hel/hellomaven.git</tagBase>
                     <tagNameFormat>@{project.version}</tagNameFormat>
-                    <username>rdarocha</username>
+                    <username>${bamboo.username}</username>
+                    <password>${bamboo.password}</password>
                 </configuration>
             </plugin>
             <plugin>
