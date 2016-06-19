@@ -3,7 +3,7 @@
 
     <groupId>helloMaven</groupId>
     <artifactId>helloMaven</artifactId>
-    <version>1.16-SNAPSHOT</version>
+    <version>1.17-SNAPSHOT</version>
 
     <scm>
         <developerConnection>scm:git:ssh://skydev03.skytv.co.nz:8444/hel/hello.git</developerConnection>
