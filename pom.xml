@@ -3,13 +3,13 @@
 
     <groupId>helloMaven</groupId>
     <artifactId>helloMaven</artifactId>
-    <version>1.4-SNAPSHOT</version>
+    <version>1.4</version>
 
     <scm>
         <developerConnection>scm:git:ssh://skydev03:8444/hel/hello.git</developerConnection>
         <connection>scm:git:ssh://skydev03:8444/hel/hello.git</connection>
         <url>http://skydev03/bitbucket/projects/HEL/repos/hello/browse</url>
-        <tag>1.3</tag>
+        <tag>1.4</tag>
     </scm>
 
     <build>
