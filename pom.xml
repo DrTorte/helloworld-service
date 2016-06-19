@@ -11,7 +11,6 @@
         <url>http://skydev03.skytv.co.nz/bitbucket/projects/HEL/repos/hello</url>
         <tag>1.24</tag>
     </scm>
-
     <build>
         <plugins>
             <plugin>
