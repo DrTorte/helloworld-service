@@ -3,7 +3,7 @@
 
     <groupId>helloMaven</groupId>
     <artifactId>helloMaven</artifactId>
-    <version>1.9-SNAPSHOT</version>
+    <version>1.6-SNAPSHOT</version>
 
     <scm>
         <developerConnection>scm:git:ssh://skydev03:8444/hel/hello.git</developerConnection>
@@ -63,7 +63,7 @@
         </plugins>
     </build>
 
-    <distributionManagement>
+    <!--distributionManagement>
         <repository>
             <id>sky-releases</id>
             <name>SKY Release Repository</name>
@@ -74,5 +74,5 @@
             <name>SKY Snapshot Repository</name>
             <url>http://skydev03/artifactory/sky-snapshots</url>
         </snapshotRepository>
-    </distributionManagement>
+    </distributionManagement-->
 </project>
