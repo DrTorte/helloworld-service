@@ -9,7 +9,7 @@
         <developerConnection>scm:git:ssh://skydev03:8444/hel/hello.git</developerConnection>
         <connection>scm:git:ssh://skydev03:8444/hel/hello.git</connection>
         <url>http://skydev03/bitbucket/projects/HEL/repos/hello/browse</url>
-        <tag>1.10</tag>
+        <tag>1.11</tag>
     </scm>
 
     <build>
@@ -67,12 +67,12 @@
         <repository>
             <id>sky-releases</id>
             <name>SKY Release Repository</name>
-            <url> http://skydev03.skytv.co.nz/artifactory/sky-releases</url>
+            <url> http://localhost/artifactory/sky-releases</url>
         </repository>
         <snapshotRepository>
             <id>sky-snapshots</id>
             <name>SKY Snapshot Repository</name>
-            <url>http://skydev03.skytv.co.nz/artifactory/sky-snapshots</url>
+            <url>http://localhost/artifactory/sky-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 </project>
