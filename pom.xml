@@ -44,8 +44,8 @@
                 <configuration>
                     <tagBase>scm:git:ssh://skydev03.skytv.co.nz:8444/hel/hello.git</tagBase>
                     <tagNameFormat>@{project.version}</tagNameFormat>
-                    <!--username>${bamboo.username}</username>
-                    <password>${bamboo.password}</password-->
+                    <username>${bamboo.username}</username>
+                    <password>${bamboo.password}</password>
                 </configuration>
             </plugin>
             <plugin>
