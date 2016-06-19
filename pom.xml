@@ -65,8 +65,8 @@
 
     <distributionManagement>
         <repository>
-            <id>skydev03.skytv.co.nz</id>
-            <name>skydev03.skytv.co.nz-releases</name>
+            <id>sky-releases</id>
+            <name>SKY Release Repository</name>
             <url>http://skydev03.skytv.co.nz/artifactory/sky-releases</url>
         </repository>
         <snapshotRepository>
