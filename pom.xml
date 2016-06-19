@@ -6,10 +6,10 @@
     <version>1.16-SNAPSHOT</version>
 
     <scm>
-        <developerConnection>scm:git:ssh://skydev03:8444/hel/hello.git</developerConnection>
-        <connection>scm:git:ssh://skydev03:8444/hel/hello.git</connection>
-        <url>http://skydev03/bitbucket/projects/HEL/repos/hello/browse</url>
-        <tag>1.14</tag>
+        <developerConnection>scm:git:ssh://skydev03.skytv.co.nz:8444/hel/hello.git</developerConnection>
+        <connection>scm:git:ssh://skydev03.skytv.co.nz:8444/hel/hello.git</connection>
+        <url>http://skydev03.skytv.co.nz/bitbucket/projects/HEL/repos/hello</url>
+        <tag>1.15</tag>
     </scm>
 
     <build>
@@ -42,7 +42,7 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.5.3</version>
                 <configuration>
-                    <tagBase>scm:git:ssh://skydev03:8444/hel/hello.git</tagBase>
+                    <tagBase>scm:git:ssh://skydev03.skytv.co.nz:8444/hel/hello.git</tagBase>
                     <tagNameFormat>@{project.version}</tagNameFormat>
                     <!--username>${bamboo.username}</username>
                     <password>${bamboo.password}</password-->
@@ -65,14 +65,14 @@
 
     <distributionManagement>
         <repository>
-            <id>sky-releases</id>
-            <name>SKY Release Repository</name>
-            <url>http://127.0.0.1/artifactory/sky-releases</url>
+            <id>skydev03.skytv.co.nz</id>
+            <name>skydev03.skytv.co.nz-releases</name>
+            <url>http://skydev03.skytv.co.nz/artifactory/sky-releases</url>
         </repository>
         <snapshotRepository>
             <id>sky-snapshots</id>
             <name>SKY Snapshot Repository</name>
-            <url>http://127.0.0.1/artifactory/sky-snapshots</url>
+            <url>http://skydev03.skytv.co.nz/artifactory/sky-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 </project>
