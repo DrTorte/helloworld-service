@@ -9,7 +9,7 @@
         <developerConnection>scm:git:ssh://skydev03.skytv.co.nz:8444/hel/hello.git</developerConnection>
         <connection>scm:git:ssh://skydev03.skytv.co.nz:8444/hel/hello.git</connection>
         <url>http://skydev03.skytv.co.nz/bitbucket/projects/HEL/repos/hello</url>
-        <tag>1.15</tag>
+        <tag>1.16</tag>
     </scm>
 
     <build>
@@ -45,7 +45,7 @@
                     <tagBase>scm:git:ssh://skydev03.skytv.co.nz:8444/hel/hello.git</tagBase>
                     <tagNameFormat>@{project.version}</tagNameFormat>
                     <username>${bamboo.username}</username>
-                    <password>${bamboo.password}</password>
+                        <password>${bamboo.password}</password>
                 </configuration>
             </plugin>
             <plugin>
