@@ -41,7 +41,7 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.5.3</version>
                 <configuration>
-                    <tagBase>scm:git:ssh://skydev03:8444/hel/hello.git</tagBase>
+                    <tagBase>scm:git:ssh://localhost:8444/hel/hello.git</tagBase>
                     <tagNameFormat>@{project.version}</tagNameFormat>
                     <!--username>${bamboo.username}</username>
                     <password>${bamboo.password}</password-->
