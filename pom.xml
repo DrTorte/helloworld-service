@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <groupId>helloMaven</groupId>
     <artifactId>helloMaven</artifactId>
     <version>1.56-SNAPSHOT</version>
@@ -11,6 +11,7 @@
         <url>http://skydev03.skytv.co.nz/bitbucket/projects/HEL/repos/hello</url>
         <tag>1.24</tag>
     </scm>
+
     <build>
         <plugins>
             <plugin>
@@ -74,4 +75,5 @@
             <url>http://skydev03.skytv.co.nz/artifactory/sky-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
+
 </project>
