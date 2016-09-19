@@ -103,7 +103,7 @@
                 <snapshotRepository>
                     <id>skydev03.skytv.co.nz</id>
                     <name>skydev03.skytv.co.nz-snapshots</name>
-                    <url>http://skydev03.skytv.co.nz/artifactory/sky-snapshots</url>
+                    <url>http://10.61.0.20/artifactory/sky-snapshots</url>
                 </snapshotRepository>
             </distributionManagement>
         </profile>
