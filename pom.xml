@@ -108,4 +108,18 @@
             </distributionManagement>
         </profile>
     </profiles>
+
+    <!--specifies where (and how) this project will get to a remote repository when it is deployed-->
+    <distributionManagement>
+        <repository>
+            <id>sky-releases</id>
+            <name>SKY Release Repository</name>
+            <url>http://10.61.0.20/artifactory/sky-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>sky-snapshots</id>
+            <name>SKY Snapshot Repository</name>
+            <url>http://10.61.0.20/artifactory/sky-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
