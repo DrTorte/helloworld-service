@@ -5,6 +5,7 @@
     <artifactId>helloMaven</artifactId>
     <version>1.57</version>
     <packaging>jar</packaging>
+
     <description>
         Application used to test the release process.
     </description>
