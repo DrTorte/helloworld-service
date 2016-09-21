@@ -17,7 +17,6 @@
     </organization>
 
     <scm>
-        <developerConnection>scm:git:ssh://git@10.61.0.24:7999/hel/hello.git</developerConnection>
         <connection>scm:git:ssh://git@10.61.0.24:7999/hel/hello.git</connection>
         <url>http://10.61.0.24/bitbucket/projects/HEL/repos/hello/browse</url>
         <tag>HEAD</tag>
