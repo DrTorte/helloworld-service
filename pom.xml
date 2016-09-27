@@ -150,7 +150,7 @@
                 <configuration>
                     <url>http://localhost:8080/manager/text</url>
                     <server>TomcatServer</server>
-                    <path>/registry</path>
+                    <path>/hello</path>
                 </configuration>
             </plugin>
             <!-- Configures how the WAR file is built-->
