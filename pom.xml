@@ -105,9 +105,11 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
+
         <filters>
             <filter>src/main/resources/build.properties</filter>
         </filters>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
