@@ -29,6 +29,7 @@
     </properties>
 
     <dependencyManagement>
+
         <dependencies>
             <dependency>
                 <!-- Import dependency management from Spring Boot -->
@@ -39,6 +40,7 @@
                 <scope>import</scope>
             </dependency>
         </dependencies>
+
     </dependencyManagement>
 
     <dependencies>
