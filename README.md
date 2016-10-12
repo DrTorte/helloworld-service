@@ -19,11 +19,13 @@
 	git branch
 	```
 
+
 5. Merge your local copy with the repo's one.
 
 	```
 	git pull
 	```
+
 
 6. Commit then push your local changes.
 
@@ -33,5 +35,6 @@
 	git commit -m "My comments go here..."
 	git push
 	```
+
 
 7. At this point, you should be able to use your repository normally on AWS the same way you've been using on skydev03.
