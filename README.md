@@ -10,7 +10,7 @@
 	```
 	cd /path/to/my/local/copy
 	git config --get remote.origin.url
-	git remote set-url origin <address_from_step_3>
+	git remote set-url origin <address_from_step_4>
 	git config --get remote.origin.url
 	git checkout ci
 	git branch
