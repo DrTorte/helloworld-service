@@ -3,7 +3,8 @@
 ### Please proceed with the following steps to start using it in its new location.
 1. Access the link below in a new tab or page.
 
-	`http://10.61.0.24/bitbucket/projects/HEL/repos/hello/browse`
+	http://10.61.0.24/bitbucket/projects/HEL/repos/hello/browse
+
 
 2. Click on "Fork" at the left-hand corner of the page then follow its instructions to fork the AWS repository.
 3. Click on the "Clone" link at the left-hand corner of your AWS fork's page then copy the exposed address.
