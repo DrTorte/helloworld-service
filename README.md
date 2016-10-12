@@ -13,7 +13,7 @@ git remote set-url origin <address_from_step_3>
 git config --get remote.origin.url
 git checkout ci
 git branch
-<code>
+</code>
 5. Merge your local copy with the repo's one.
 ```git pull```
 6. Commit then push your local changes.
