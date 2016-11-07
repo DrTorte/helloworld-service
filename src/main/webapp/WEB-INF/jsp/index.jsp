@@ -1,1 +1,1 @@
-Hello World buddy!
+Hello World!
