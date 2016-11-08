@@ -17,6 +17,7 @@
     </organization>
 
     <scm>
+        <developerConnection>scm:git:ssh://git@10.61.0.24:7999/hel/hello.git</developerConnection>
         <connection>scm:git:ssh://git@10.61.0.24:7999/hel/hello.git</connection>
         <url>http://10.61.0.24/bitbucket/projects/HEL/repos/hello/browse</url>
         <tag>HEAD</tag>
@@ -42,7 +43,8 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- Spring Boot Dependencies -->
+        
+	<!-- Spring Boot Dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -61,17 +63,20 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
             <scope>provided</scope>
         </dependency>
+
         <!-- Servlet Context -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>${servlet.version}</version>
         </dependency>
+
         <!-- Swagger -->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -95,6 +100,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -105,9 +111,11 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
+
         <filters>
             <filter>src/main/resources/build.properties</filter>
         </filters>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -150,7 +158,7 @@
                 <configuration>
                     <url>http://localhost:8080/manager/text</url>
                     <server>TomcatServer</server>
-                    <path>/registry</path>
+                    <path>/hello</path>
                 </configuration>
             </plugin>
             <!-- Configures how the WAR file is built-->
