@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <name>Hello Maven World!</name>
     <groupId>nz.co.skytv</groupId>
     <artifactId>helloMaven</artifactId>
@@ -27,6 +27,7 @@
         <servlet.version>3.1.0</servlet.version>
         <springfox.version>2.3.0</springfox.version>
         <spring-boot.version>1.3.0.RELEASE</spring-boot.version>
+        <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
     </properties>
 
     <dependencyManagement>
@@ -195,8 +196,10 @@
             </activation>
             <distributionManagement>
                 <repository>
-                    <id>skydev03.skytv.co.nz</id>
-                    <name>skydev03.skytv.co.nz-releases</name>
+                    <!--id>skydev03.skytv.co.nz</id>
+                    <name>skydev03.skytv.co.nz-releases</name-->
+                    <id>sky-aws-releases</id>
+                    <name>artifactory-aws-releases</name>
                     <url>http://10.61.0.20/artifactory/sky-releases</url>
                 </repository>
             </distributionManagement>
@@ -213,8 +216,10 @@
             </activation>
             <distributionManagement>
                 <snapshotRepository>
-                    <id>skydev03.skytv.co.nz</id>
-                    <name>skydev03.skytv.co.nz-snapshots</name>
+                    <!--id>skydev03.skytv.co.nz</id>
+                    <name>skydev03.skytv.co.nz-snapshots</name-->
+                    <id>sky-aws-snapshots</id>
+                    <name>artifactory-aws-snapshots</name>
                     <url>http://10.61.0.20/artifactory/sky-snapshots</url>
                 </snapshotRepository>
             </distributionManagement>
@@ -224,13 +229,13 @@
     <!--specifies where (and how) this project will get to a remote repository when it is deployed-->
     <distributionManagement>
         <repository>
-            <id>sky-releases</id>
-            <name>SKY Release Repository</name>
+            <id>sky-aws-releases</id>
+            <name>SKY AWS Release Repository</name>
             <url>http://10.61.0.20/artifactory/sky-releases</url>
         </repository>
         <snapshotRepository>
-            <id>sky-snapshots</id>
-            <name>SKY Snapshot Repository</name>
+            <id>sky-aws-snapshots</id>
+            <name>SKY AWS Snapshot Repository</name>
             <url>http://10.61.0.20/artifactory/sky-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
