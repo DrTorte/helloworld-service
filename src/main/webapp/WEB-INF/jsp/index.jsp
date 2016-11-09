@@ -1,1 +1,1 @@
-Hello World my friend!
+This is just a test!
