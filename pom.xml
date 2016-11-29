@@ -3,13 +3,13 @@
 
     <groupId>helloMaven</groupId>
     <artifactId>helloMaven</artifactId>
-    <version>1.58</version>
+    <version>1.59-SNAPSHOT</version>
 
     <scm>
         <developerConnection>scm:git:ssh://skydev03.skytv.co.nz:8444/hel/hello.git</developerConnection>
         <connection>scm:git:ssh://skydev03.skytv.co.nz:8444/hel/hello.git</connection>
         <url>http://skydev03.skytv.co.nz/bitbucket/projects/HEL/repos/hello</url>
-        <tag>1.58</tag>
+        <tag>1.24</tag>
     </scm>
     <build>
         <plugins>
