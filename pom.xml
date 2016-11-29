@@ -4,7 +4,7 @@
     <name>Hello Maven World!</name>
     <groupId>nz.co.skytv</groupId>
     <artifactId>helloMaven</artifactId>
-    <version>1.0.62-SNAPSHOT</version>
+    <version>1.0.78</version>
     <packaging>war</packaging>
 
     <description>
@@ -17,10 +17,10 @@
     </organization>
 
     <scm>
-        <developerConnection>scm:git:ssh://git@10.61.0.24:7999/hel/hello.git</developerConnection>
-        <connection>scm:git:ssh://git@10.61.0.24:7999/hel/hello.git</connection>
-        <url>http://10.61.0.24/bitbucket/projects/HEL/repos/hello/browse</url>
-        <tag>HEAD</tag>
+        <developerConnection>scm:git:ssh://git@bitbucket.skynz-dev-ci.skytv.co.nz:7999/hel/hello.git</developerConnection>
+        <connection>scm:git:ssh://git@bitbucket.skynz-dev-ci.skytv.co.nz:7999/hel/hello.git</connection>
+        <url>http://bitbucket.skynz-dev-ci.skytv.co.nz/bitbucket/projects/HEL/repos/hello/browse</url>
+        <tag>1.0.78</tag>
     </scm>
 
     <properties>
@@ -146,7 +146,7 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.5.3</version>
                 <configuration>
-                    <tagBase>scm:git:ssh://git@10.61.0.24:8444/hel/hello.git</tagBase>
+                    <tagBase>ssh://git@bitbucket.skynz-dev-ci.skytv.co.nz:7999/hel/hello.git</tagBase>
                     <tagNameFormat>@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
@@ -196,11 +196,9 @@
             </activation>
             <distributionManagement>
                 <repository>
-                    <!--id>skydev03.skytv.co.nz</id>
-                    <name>skydev03.skytv.co.nz-releases</name-->
                     <id>sky-aws-releases</id>
                     <name>artifactory-aws-releases</name>
-                    <url>http://10.61.0.20/artifactory/sky-releases</url>
+                    <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-releases</url>
                 </repository>
             </distributionManagement>
         </profile>
@@ -216,11 +214,9 @@
             </activation>
             <distributionManagement>
                 <snapshotRepository>
-                    <!--id>skydev03.skytv.co.nz</id>
-                    <name>skydev03.skytv.co.nz-snapshots</name-->
                     <id>sky-aws-snapshots</id>
                     <name>artifactory-aws-snapshots</name>
-                    <url>http://10.61.0.20/artifactory/sky-snapshots</url>
+                    <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-snapshots</url>
                 </snapshotRepository>
             </distributionManagement>
         </profile>
@@ -230,13 +226,13 @@
     <distributionManagement>
         <repository>
             <id>sky-aws-releases</id>
-            <name>SKY AWS Release Repository</name>
-            <url>http://10.61.0.20/artifactory/sky-releases</url>
+            <name>artifactory-aws-releases</name>
+            <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-releases</url>
         </repository>
         <snapshotRepository>
             <id>sky-aws-snapshots</id>
-            <name>SKY AWS Snapshot Repository</name>
-            <url>http://10.61.0.20/artifactory/sky-snapshots</url>
+            <name>artifactory-aws-snapshots</name>
+            <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 </project>

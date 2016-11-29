@@ -1,7 +1,7 @@
 ### This project is currently being migrated to AWS.
 
 ### Please proceed with the following steps to start using it in its new location.
-1. Open [this link](http://10.61.0.24/bitbucket/projects/HEL/repos/hello/browse "New AWS URL") in a new tab or page.
+1. Open [this link](http://bitbucket.skynz-dev-ci.skytv.co.nz/bitbucket/projects/HEL/repos/hello/browse "New AWS URL") in a new tab or page.
 2. Login to the AWS Bitbucket.
 3. Click on "Fork" at the left-hand corner of the page then click on "Fork repository".
 4. Click on the "Clone" link at the left-hand corner of your AWS fork's page then copy the exposed address.
