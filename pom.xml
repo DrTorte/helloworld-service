@@ -196,8 +196,6 @@
             </activation>
             <distributionManagement>
                 <repository>
-                    <!--id>skydev03.skytv.co.nz</id>
-                    <name>skydev03.skytv.co.nz-releases</name-->
                     <id>sky-aws-releases</id>
                     <name>artifactory-aws-releases</name>
                     <url>http://skydev03.skytv.co.nz/artifactory/sky-releases</url>
@@ -216,8 +214,6 @@
             </activation>
             <distributionManagement>
                 <snapshotRepository>
-                    <!--id>skydev03.skytv.co.nz</id>
-                    <name>skydev03.skytv.co.nz-snapshots</name-->
                     <id>sky-aws-snapshots</id>
                     <name>artifactory-aws-snapshots</name>
                     <url>http://skydev03.skytv.co.nz/artifactory/sky-snapshots</url>
