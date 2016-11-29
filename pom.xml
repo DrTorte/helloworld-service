@@ -4,7 +4,7 @@
     <name>Hello Maven World!</name>
     <groupId>nz.co.skytv</groupId>
     <artifactId>helloMaven</artifactId>
-    <version>1.0.65</version>
+    <version>1.0.66-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <description>
@@ -20,7 +20,7 @@
         <developerConnection>scm:git:ssh://git@skydev03.skytv.co.nz:8444/hel/hello.git</developerConnection>
         <connection>scm:git:ssh://git@skydev03.skytv.co.nz:8444/hel/hello.git</connection>
         <url>http://skydev03.skytv.co.nz/bitbucket/projects/HEL/repos/hello/browse</url>
-        <tag>1.0.65</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>
