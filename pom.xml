@@ -200,7 +200,7 @@
                     <name>skydev03.skytv.co.nz-releases</name-->
                     <id>sky-aws-releases</id>
                     <name>artifactory-aws-releases</name>
-                    <url>http://10.61.0.20/artifactory/sky-releases</url>
+                    <url>http://skydev03.skytv.co.nz/artifactory/sky-releases</url>
                 </repository>
             </distributionManagement>
         </profile>
@@ -220,7 +220,7 @@
                     <name>skydev03.skytv.co.nz-snapshots</name-->
                     <id>sky-aws-snapshots</id>
                     <name>artifactory-aws-snapshots</name>
-                    <url>http://10.61.0.20/artifactory/sky-snapshots</url>
+                    <url>http://skydev03.skytv.co.nz/artifactory/sky-snapshots</url>
                 </snapshotRepository>
             </distributionManagement>
         </profile>
@@ -231,12 +231,12 @@
         <repository>
             <id>sky-aws-releases</id>
             <name>artifactory-aws-releases</name>
-            <url>http://10.61.0.20/artifactory/sky-releases</url>
+            <url>http://skydev03.skytv.co.nz/artifactory/sky-releases</url>
         </repository>
         <snapshotRepository>
             <id>sky-aws-snapshots</id>
             <name>artifactory-aws-snapshots</name>
-            <url>http://10.61.0.20/artifactory/sky-snapshots</url>
+            <url>http://skydev03.skytv.co.nz/artifactory/sky-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 </project>
