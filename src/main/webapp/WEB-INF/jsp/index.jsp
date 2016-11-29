@@ -1,1 +1,1 @@
-Test application -----  something !
+Just another test.
