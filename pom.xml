@@ -185,6 +185,7 @@
     </build>
 
     <profiles>
+
         <!--Profile to build and release GIT master branch ad upload the WAR into Artifactory-->
         <profile>
             <id>profile-master</id>
