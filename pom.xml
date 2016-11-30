@@ -4,7 +4,7 @@
     <name>Hello Maven World!</name>
     <groupId>nz.co.skytv</groupId>
     <artifactId>helloMaven</artifactId>
-    <version>1.0.78-SNAPSHOT</version>
+    <version>1.0.79-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <description>
