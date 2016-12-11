@@ -15,7 +15,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 @RunWith(MockitoJUnitRunner.class)
-//@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class MainControllerTest {
     private MockMvc mockRoot;
 
@@ -30,7 +29,5 @@ public class MainControllerTest {
     public void testHomePage() throws Exception {
         LOG.debug("Testing homepage is index.jsp");
         mockRoot.perform(get("/")).andExpect(status().isOk()).andExpect(view().name("index"));
-        //String body = this.restTemplate.getForObject("/", String.class);
-        //assertThat(body).isEqualTo("Hello World");
     }
 }

@@ -11,7 +11,7 @@
     </appender>
 
     <appender name="APPLICATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>${catalina.base}/logs/service-catalogue-application.log</File>
+        <File>${catalina.base}/logs/hello-world-application.log</File>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>TRACE</level>
         </filter>
@@ -25,12 +25,12 @@
     </appender>
 
     <appender name="ERRORS" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>${catalina.base}/logs/service-catalogue-event.log</File>
+        <File>${catalina.base}/logs/hello-world-event.log</File>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>ERROR</level>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>${catalina.base}/logs/service-catalogue-event.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>${catalina.base}/logs/hello-world-event.%d{yyyy-MM-dd}.log</FileNamePattern>
             <MaxHistory>90</MaxHistory>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
