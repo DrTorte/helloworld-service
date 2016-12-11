@@ -1,5 +1,9 @@
-2016-12-11 18:50:46 I main o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping: Mapped "{[/],methods=[GET]}" onto public java.lang.String nz.co.skytv.controller.MainController.homePage()
-2016-12-11 18:50:46 I main o.s.w.s.m.m.a.RequestMappingHandlerAdapter: Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@103f852
-2016-12-11 18:50:46 I main o.s.mock.web.MockServletContext: Initializing Spring FrameworkServlet ''
-2016-12-11 18:50:46 I main o.s.t.w.s.TestDispatcherServlet: FrameworkServlet '': initialization started
-2016-12-11 18:50:46 I main o.s.t.w.s.TestDispatcherServlet: FrameworkServlet '': initialization completed in 2 ms
+2016-12-11 19:21:27 I main n.s.c.c.CoverageDataFileHandler: Cobertura: Saved information on 1 classes.
+2016-12-11 19:21:27 I main n.s.c.c.CoverageDataFileHandler: Cobertura: Saved information on 1 classes.
+2016-12-11 19:21:28 I main o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping: Mapped "{[/],methods=[GET]}" onto public java.lang.String nz.co.skytv.controller.MainController.homePage()
+2016-12-11 19:21:28 I main o.s.w.s.m.m.a.RequestMappingHandlerAdapter: Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@5e57643e
+2016-12-11 19:21:29 I main o.s.mock.web.MockServletContext: Initializing Spring FrameworkServlet ''
+2016-12-11 19:21:29 I main o.s.t.w.s.TestDispatcherServlet: FrameworkServlet '': initialization started
+2016-12-11 19:21:29 I main o.s.t.w.s.TestDispatcherServlet: FrameworkServlet '': initialization completed in 2 ms
+2016-12-11 19:21:30 I Thread-0 n.s.c.c.CoverageDataFileHandler: Cobertura: Loaded information on 1 classes.
+2016-12-11 19:21:30 I Thread-0 n.s.c.c.CoverageDataFileHandler: Cobertura: Saved information on 1 classes.
