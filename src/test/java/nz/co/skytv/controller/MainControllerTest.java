@@ -1,34 +1,22 @@
 package nz.co.skytv.controller;
 
-import org.junit.*;
-import org.junit.runner.*;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.boot.test.context.*;
-import org.springframework.boot.test.mock.mockito.*;
-import org.springframework.test.context.junit4.*;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.mockito.BDDMockito.*;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.runners.MockitoJUnitRunner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
+@RunWith(MockitoJUnitRunner.class)
+//@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class MainControllerTest {
-
-    @MockBean
-    private RemoteService remoteService;
-
-    @Autowired
-    private Reverser reverser;
-
-    @Test
-    public void exampleTest() {
-        // RemoteService has been injected into the reverser bean
-        given(this.remoteService.someCall()).willReturn("mock");
-        String reverse = reverser.reverseSomeCall();
-        assertThat(reverse).isEqualTo("kcom");
-    }
-
-    /*
     private MockMvc mockRoot;
 
     private static final Logger LOG = LoggerFactory.getLogger(MainController.class);
@@ -45,5 +33,4 @@ public class MainControllerTest {
         //String body = this.restTemplate.getForObject("/", String.class);
         //assertThat(body).isEqualTo("Hello World");
     }
-    */
 }
