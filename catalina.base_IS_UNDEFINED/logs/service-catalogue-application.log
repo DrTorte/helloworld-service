@@ -1,5 +1,0 @@
-2016-12-11 16:14:36 I main o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping: Mapped "{[/],methods=[GET]}" onto public java.lang.String nz.co.skytv.controller.MainController.homePage()
-2016-12-11 16:14:36 I main o.s.w.s.m.m.a.RequestMappingHandlerAdapter: Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@15b3e5b
-2016-12-11 16:14:36 I main o.s.mock.web.MockServletContext: Initializing Spring FrameworkServlet ''
-2016-12-11 16:14:36 I main o.s.t.w.s.TestDispatcherServlet: FrameworkServlet '': initialization started
-2016-12-11 16:14:36 I main o.s.t.w.s.TestDispatcherServlet: FrameworkServlet '': initialization completed in 2 ms

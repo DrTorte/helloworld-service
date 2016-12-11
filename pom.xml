@@ -205,12 +205,16 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <formats>
+                        <format>html</format>
+                        <format>xml</format>
+                    </formats>
                     <instrumentation>
                         <includes>
-                            <include>nz/co/sky/controller/*.class</include>
+                            <include>nz/co/skytv/controller/*.class</include>
                         </includes>
                         <excludes>
-                            <exclude>nz/co/sky/config/*.class</exclude>
+                            <exclude>nz/co/skytv/config/*.class</exclude>
                         </excludes>
                     </instrumentation>
                     <check />
