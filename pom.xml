@@ -29,8 +29,6 @@
         <spring-boot.version>1.4.2.RELEASE</spring-boot.version>
         <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
         <logback.version>1.1.7</logback.version>
-        <!--sonar.junit.reportsPath>target/surefire-reports</sonar.junit.reportsPath>
-        <sonar.cobertura.reportPath>target/site/cobertura/coverage.xml</sonar.cobertura.reportPath-->
         <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.jacoco.reportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPath>
@@ -246,6 +244,24 @@
                 <version>2.16</version>
                 <configuration>
                     <runOrder>random</runOrder>
+                </configuration>
+            </plugin>
+
+            <!-- Combine multiple maven goals into a single argument -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.5.0</version>
+                <configuration>
+                    <executable>mvn</executable>
+                    <arguments>
+                        <!-- Run the clean maven lifecycle -->
+                        <argument>clean</argument>
+                        <!-- Run/re-run spring-boot -->
+                        <argument>spring-boot:run</argument>
+                        <!-- Enable colored console fonts -->
+                        <argument>-Dspring.output.ansi.enabled=ALWAYS</argument>
+                    </arguments>
                 </configuration>
             </plugin>
         </plugins>

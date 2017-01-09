@@ -1,10 +1,8 @@
 release.sh
 .idea
 target
-helloMaven.iml
+*.iml
 origin_url_*.txt
 pom.xml-*
-origin_url_*.txt
-pom.xml-*
-origin_url_*.txt
-pom.xml-*
+*IS_UNDEFINED
+
