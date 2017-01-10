@@ -17,9 +17,9 @@
     </organization>
 
     <scm>
-        <developerConnection>scm:git:ssh://bitbucket.skynz-dev-ci.skytv.co.nz:7999/hel/hello.git</developerConnection>
-        <connection>scm:git:ssh://bitbucket.skynz-dev-ci.skytv.co.nz:7999/hel/hello.git</connection>
-        <url>http://bitbucket.skynz-dev-ci.skytv.co.nz/bitbucket/projects/HEL/repos/hello/browse</url>
+        <developerConnection>scm:git:ssh://git@bitbucket.skynz-dev-ci.skytv.co.nz:8444/hel/hello.git</developerConnection>
+        <connection>scm:git:ssh://git@bitbucket.skynz-dev-ci.skytv.co.nz:8444/hel/hello.git</connection>
+        <url>http://bitbucket.skynz-dev-ci.skytv.co.nz:7990/bitbucket/projects/HEL/repos/hello/browse</url>
         <tag>1.0.77</tag>
     </scm>
 
@@ -159,7 +159,7 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.5.3</version>
                 <configuration>
-                    <tagBase>scm:git:ssh://bitbucket.skynz-dev-ci.skytv.co.nz:7999/hel/hello.git</tagBase>
+                    <tagBase>scm:git:ssh://git@bitbucket.skynz-dev-ci.skytv.co.nz:8444/hel/hello.git</tagBase>
                     <tagNameFormat>@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
@@ -303,9 +303,8 @@
     </reporting>
 
     <profiles>
-
-        <!--Profile to build and release GIT master branch ad upload the WAR into Artifactory-->
         <profile>
+            <!--Profile to build and release GIT master branch ad upload the WAR into Artifactory-->
             <id>profile-master</id>
             <activation>
                 <property>
@@ -315,15 +314,14 @@
             </activation>
             <distributionManagement>
                 <repository>
-                    <id>sky-aws-releases</id>
-                    <name>artifactory-aws-releases</name>
+                    <id>sky-releases</id>
+                    <name>artifactory.skynz-dev-ci.skytv.co.nz-releases</name>
                     <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-releases</url>
                 </repository>
             </distributionManagement>
         </profile>
-
-        <!--Profile to build and release GIT CI branch ad upload the WAR into Artifactory-->
         <profile>
+            <!--Profile to build and release GIT CI branch ad upload the WAR into Artifactory-->
             <id>profile-ci</id>
             <activation>
                 <property>
@@ -333,8 +331,8 @@
             </activation>
             <distributionManagement>
                 <snapshotRepository>
-                    <id>sky-aws-snapshots</id>
-                    <name>artifactory-aws-snapshots</name>
+                    <id>sky-snapshots</id>
+                    <name>artifactory.skynz-dev-ci.skytv.co.nz-snapshots</name>
                     <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-snapshots</url>
                 </snapshotRepository>
             </distributionManagement>
@@ -344,13 +342,13 @@
     <!--specifies where (and how) this project will get to a remote repository when it is deployed-->
     <distributionManagement>
         <repository>
-            <id>sky-aws-releases</id>
-            <name>artifactory-aws-releases</name>
+            <id>sky-releases</id>
+            <name>SKY Release Repository</name>
             <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-releases</url>
         </repository>
         <snapshotRepository>
-            <id>sky-aws-snapshots</id>
-            <name>artifactory-aws-snapshots</name>
+            <id>sky-snapshots</id>
+            <name>SKY Snapshot Repository</name>
             <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
