@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <name>Hello Maven World!</name>
+    <name>hello-world</name>
     <groupId>nz.co.skytv</groupId>
-    <artifactId>helloMaven</artifactId>
+    <artifactId>HelloWorld</artifactId>
     <version>1.0.79-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <description>
         Application used to test the release process.
@@ -180,6 +180,32 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>1.3.5.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Combine multiple maven goals into a single argument -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.5.0</version>
+                <configuration>
+                    <executable>mvn</executable>
+                    <arguments>
+                        <!-- Run the clean maven lifecycle -->
+                        <argument>clean</argument>
+                        <!-- Run the install maven lifecycle -->
+                        <argument>install</argument>
+                        <!-- Run/re-run spring-boot -->
+                        <argument>spring-boot:run</argument>
+                        <!-- Enable colored console fonts -->
+                        <argument>-Dspring.output.ansi.enabled=ALWAYS</argument>
+                    </arguments>
+                </configuration>
             </plugin>
         </plugins>
     </build>
