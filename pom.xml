@@ -207,34 +207,6 @@
                 </executions>
             </plugin>
 
-            <!-- Analyse test coverage -->
-            <!--plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.7</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>clean</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <formats>
-                        <format>html</format>
-                        <format>xml</format>
-                    </formats>
-                    <instrumentation>
-                        <includes>
-                            <include>nz/co/skytv/controller/*.class</include>
-                        </includes>
-                        <excludes>
-                            <exclude>nz/co/skytv/config/*.class</exclude>
-                        </excludes>
-                    </instrumentation>
-                    <check />
-                </configuration>
-            </plugin-->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
