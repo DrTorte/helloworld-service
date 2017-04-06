@@ -3,9 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
     <name>Hello Maven World!</name>
     <groupId>nz.co.skytv</groupId>
-    <artifactId>helloMaven</artifactId>
+    <artifactId>HelloWorld</artifactId>
     <version>1.0.81-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <description>
         Application used to test the release process.
@@ -188,7 +188,9 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                     <packagingExcludes>
                         WEB-INF/lib/tomcat-*.jar,
+                        <!--
                         WEB-INF/classes/hello.properties*
+                        -->
                     </packagingExcludes>
                 </configuration>
             </plugin>
