@@ -11,7 +11,7 @@
     </appender>
 
     <appender name="APPLICATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>${catalina.base}/logs/hello-world-application.log</File>
+        <File>${app.log.path}/hello-world-application.log</File>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>TRACE</level>
         </filter>
