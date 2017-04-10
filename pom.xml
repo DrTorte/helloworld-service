@@ -192,6 +192,7 @@
                             <classpathPrefix>dependency/</classpathPrefix>
                         </manifest>
                         <manifestEntries>
+                            <!--Class-Path>../webconfs</Class-Path-->
                             <Class-Path>.</Class-Path>
                         </manifestEntries>
                     </archive>
