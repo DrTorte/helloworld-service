@@ -122,10 +122,6 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
-            <!--resource>
-                <directory>${project.basedir}</directory>
-                <filtering>false</filtering>
-            </resource-->
         </resources>
 
         <filters>
@@ -235,9 +231,6 @@
                         </goals>
                     </execution>
                 </executions>
-                <!--configuration>
-                    <executable>true</executable>
-                </configuration-->
             </plugin>
 
             <plugin>
