@@ -122,6 +122,10 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
+            <!--resource>
+                <directory>${project.basedir}</directory>
+                <filtering>false</filtering>
+            </resource-->
         </resources>
 
         <filters>
@@ -185,15 +189,39 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.6</version>
                 <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>nz.co.skytv.config.Application</mainClass>
+                            <classpathPrefix>dependency/</classpathPrefix>
+                        </manifest>
+                        <manifestEntries>
+                            <Class-Path>.</Class-Path>
+                        </manifestEntries>
+                    </archive>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                     <packagingExcludes>
                         WEB-INF/lib/tomcat-*.jar,
-                        <!--
                         WEB-INF/classes/hello.properties*
-                        -->
                     </packagingExcludes>
                 </configuration>
             </plugin>
+            <!--plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>nz.co.skytv.config.Application</mainClass>
+                            <classpathPrefix>dependency/</classpathPrefix>
+                        </manifest>
+                        <manifestEntries>
+                            <Class-Path>conf/</Class-Path>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin-->
 
             <!-- This plugin allows the application to run as Spring boot -->
             <plugin>
@@ -207,6 +235,9 @@
                         </goals>
                     </execution>
                 </executions>
+                <!--configuration>
+                    <executable>true</executable>
+                </configuration-->
             </plugin>
 
             <plugin>
