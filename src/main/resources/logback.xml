@@ -1,5 +1,16 @@
 <configuration>
-	<include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <property resource="hello.properties" />
+
+    <!-- To log both in console and file - enable base.xml,
+    By default the console logging is disabled as we do not want to see any logs in tomcat catalina.out
+    -->
+    <!--include resource="org/springframework/boot/logging/logback/base.xml" / -->
+
+    <!-- Spring Boot File Appender to log details in specified file-->
+    <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
+
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%d{yyyy-MM-dd} %d{HH:mm:SSS} %.-5level %thread %X{X-B3-TraceId:-} ${spring.application.name} %logger{36}: %m%n"/>
 	
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -16,7 +27,7 @@
             <level>TRACE</level>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>${catalina.base}/logs/hello-world-application.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>${app.log.path}/hello-world-application.%d{yyyy-MM-dd}.log</FileNamePattern>
             <MaxHistory>90</MaxHistory>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
@@ -25,12 +36,12 @@
     </appender>
 
     <appender name="ERRORS" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>${catalina.base}/logs/hello-world-event.log</File>
+        <File>${app.log.path}/hello-world-event.log</File>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>ERROR</level>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>${catalina.base}/logs/hello-world-event.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>${app.log.path}/hello-world-event.%d{yyyy-MM-dd}.log</FileNamePattern>
             <MaxHistory>90</MaxHistory>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
