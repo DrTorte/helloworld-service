@@ -1,14 +1,9 @@
 <configuration>
-    <!--property resource="helloworld-service.properties" /-->
+
     <property file="${info.app.name}.properties"/>
 
-    <!-- To log both in console and file - enable base.xml,
-    By default the console logging is disabled as we do not want to see any logs in tomcat catalina.out
-    -->
-    <!--include resource="org/springframework/boot/logging/logback/base.xml" / -->
-
-    <!-- Spring Boot File Appender to log details in specified file-->
-    <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
 
     <property name="CONSOLE_LOG_PATTERN"
               value="%d{yyyy-MM-dd} %d{HH:mm:SSS} %.-5level %thread %X{X-B3-TraceId:-} ${spring.application.name} %logger{36}: %m%n"/>
