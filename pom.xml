@@ -1,15 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <name>Hello Maven World!</name>
+    <name>helloworld-service</name>
     <groupId>nz.co.skytv</groupId>
-    <artifactId>HelloWorld</artifactId>
+    <artifactId>helloworld-service</artifactId>
     <version>1.0.81-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <description>
-        Application used to test the release process.
-    </description>
+    <description>Application used on general testing.</description>
 
     <organization>
         <name>Sky Network Television Limited</name>
@@ -166,19 +164,6 @@
                 </configuration>
             </plugin>
 
-            <!--Deploys to your localhost tomcat. -->
-            <!-- note: must define server and credentials settings.xml  -->
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
-                <configuration>
-                    <url>http://localhost:8080/manager/text</url>
-                    <server>TomcatServer</server>
-                    <path>/hello</path>
-                </configuration>
-            </plugin>
-
             <!-- Configures how the WAR file is built-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -192,35 +177,17 @@
                             <classpathPrefix>dependency/</classpathPrefix>
                         </manifest>
                         <manifestEntries>
-                            <!--Class-Path>../webconfs</Class-Path-->
-                            <Class-Path>.</Class-Path>
+                            <Class-Path>../webconfs</Class-Path>
                         </manifestEntries>
                     </archive>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                     <packagingExcludes>
                         WEB-INF/lib/tomcat-*.jar,
-                        WEB-INF/classes/hello.properties*
+                        WEB-INF/classes/helloworld-service.properties*
                     </packagingExcludes>
                 </configuration>
             </plugin>
-            <!--plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <mainClass>nz.co.skytv.config.Application</mainClass>
-                            <classpathPrefix>dependency/</classpathPrefix>
-                        </manifest>
-                        <manifestEntries>
-                            <Class-Path>conf/</Class-Path>
-                        </manifestEntries>
-                    </archive>
-                </configuration>
-            </plugin-->
 
-            <!-- This plugin allows the application to run as Spring boot -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -237,12 +204,32 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.7.7.201606060606</version>
+                <version>0.7.9</version>
                 <executions>
                     <execution>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
+                    </execution>
+                    <execution>
+                        <id>default-check</id>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <rule implementation="org.jacoco.maven.RuleConfiguration">
+                                    <element>BUNDLE</element>
+                                    <limits>
+                                        <limit implementation="org.jacoco.report.check.Limit">
+                                            <counter>LINE</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>0.05</minimum>
+                                        </limit>
+                                    </limits>
+                                </rule>
+                            </rules>
+                        </configuration>
                     </execution>
                 </executions>
                 <configuration>
@@ -256,20 +243,6 @@
                 <version>2.16</version>
                 <configuration>
                     <runOrder>random</runOrder>
-                </configuration>
-            </plugin>
-
-            <!-- Report on unit test coverage-->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.7</version>
-                <configuration>
-                    <formats>
-                        <format>html</format>
-                        <format>xml</format>
-                    </formats>
-                    <check />
                 </configuration>
             </plugin>
 

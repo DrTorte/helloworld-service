@@ -1,33 +1,37 @@
 package nz.co.skytv.controller;
 
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.util.logging.Logger;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MainControllerTest {
-    private MockMvc mockRoot;
 
-    private static final Logger LOG = LoggerFactory.getLogger(MainController.class);
+    private static final Logger logger = Logger.getLogger(MainControllerTest.class.getName());
+
+    private MockMvc mockMvc;
+
+    @InjectMocks
+    private MainController mainController;
 
     @Before
-    public void setup(){
-        mockRoot = MockMvcBuilders.standaloneSetup(new MainController()).build();
+    public void setUp() throws Exception {
+        logger.info("Setting up MainControllerTest...");
+        this.mockMvc = MockMvcBuilders.standaloneSetup(mainController).build();
     }
 
     @Test
-    public void testHomePage() throws Exception {
-        LOG.debug("Testing homepage is index.jsp");
-        mockRoot.perform(get("/")).andExpect(status().isOk()).andExpect(view().name("index"));
+    public void testRedirectToSwagger() throws Exception {
+        logger.info("Testing testRedirectToSwagger()...");
+        this.mockMvc.perform(get("/")).andExpect(redirectedUrl("swagger-ui.html"));
     }
 }

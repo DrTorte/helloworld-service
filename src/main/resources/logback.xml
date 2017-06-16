@@ -1,5 +1,6 @@
 <configuration>
-    <property resource="hello.properties" />
+    <!--property resource="helloworld-service.properties" /-->
+    <property file="${info.app.name}.properties"/>
 
     <!-- To log both in console and file - enable base.xml,
     By default the console logging is disabled as we do not want to see any logs in tomcat catalina.out
