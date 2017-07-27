@@ -30,6 +30,6 @@ public class v1Controller {
     @RequestMapping(value = "/message",method = RequestMethod.GET)
     @ResponseBody
     public GenericResponse<String> message() {
-        return new GenericResponse<String>().withData("hello");
+        return new GenericResponse<String>().withData("hello world");
     }
 }
