@@ -5,17 +5,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
-/**
- * Application properties configuration.
- *
- * @author Amir Moharam
- */
-
 @Configuration  // application.properties is used by default, if it exists
-
 @PropertySources({
-        @PropertySource({"classpath:hello.properties",
-                "classpath:build.properties"}),
+        @PropertySource(value = "file:helloworld-service.properties"),
+        @PropertySource(value = "classpath:build.properties")
 })
 public class Properties {
     @Value("${info.app.name}")
