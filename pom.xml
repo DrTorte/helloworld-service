@@ -4,7 +4,7 @@
     <name>helloworld-service</name>
     <groupId>nz.co.skytv</groupId>
     <artifactId>helloworld-service</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1</version>
     <packaging>war</packaging>
 
     <description>Application used on general testing.</description>
@@ -18,7 +18,7 @@
         <developerConnection>scm:git:ssh://git@bitbucket.skynz-dev-ci.skytv.co.nz:8444/hel/hello.git</developerConnection>
         <connection>scm:git:ssh://git@bitbucket.skynz-dev-ci.skytv.co.nz:8444/hel/hello.git</connection>
         <url>http://bitbucket.skynz-dev-ci.skytv.co.nz:7990/bitbucket/projects/HEL/repos/hello/browse</url>
-        <tag>HEAD</tag>
+        <tag>1.1</tag>
     </scm>
 
     <properties>
