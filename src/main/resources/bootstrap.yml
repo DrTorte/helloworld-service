@@ -1,14 +1,32 @@
+---
+#logging:
+#  file: "../log/${spring.application.name}-application.log"
+
+app:
+  log:
+    path: "../logs"
+
+server:
+  port: 8080
+  contextPath: "helloworld"
+
 spring:
+#    application:
+#      name: "@pom.artifactId@"
     cloud:
-    consul:
-        host: 127.0.0.1
-        port: 8500
-        discovery:
-        healthCheckInterval: 10s
-        instanceId: helloworld-service
-#        instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-    output:
-    ansi:
-        enabled: ALWAYS
-    application:
-    name: helloworld-service
+      consul:
+          host: 127.0.0.1
+          port: 8500
+          discovery:
+            healthCheckInterval: 15s
+            instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+            healthCheckPath:
+      output:
+        ansi:
+          enabled: ALWAYS
+
+endpoints:
+  health:
+    sensitive: false
+  jmx:
+    unique-names: true
