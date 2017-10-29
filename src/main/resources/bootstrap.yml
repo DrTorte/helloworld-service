@@ -8,7 +8,7 @@ app:
 
 server:
   port: 8080
-  contextPath: "helloworld"
+  contextPath: "/helloworld"
 
 spring:
 #    application:
@@ -20,7 +20,7 @@ spring:
           discovery:
             healthCheckInterval: 15s
             instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-            healthCheckPath:
+            healthCheckPath: ${server.contextPath}/health
       output:
         ansi:
           enabled: ALWAYS
