@@ -1,0 +1,13 @@
+spring:
+    cloud:
+    consul:
+        host: 127.0.0.1
+        port: 8500
+        discovery:
+        healthCheckInterval: 10s
+        instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    output:
+    ansi:
+        enabled: ALWAYS
+    application:
+    name: helloworld-service
