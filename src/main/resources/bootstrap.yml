@@ -28,5 +28,5 @@ spring:
 endpoints:
   health:
     sensitive: false
-  jmx:
-    unique-names: true
+#  jmx:
+#    unique-names: true
