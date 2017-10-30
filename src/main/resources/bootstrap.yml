@@ -8,19 +8,21 @@ app:
 
 server:
   port: 8080
-  contextPath: "/helloworld"
+  contextPath: helloworld
 
 spring:
 #    application:
 #      name: "@pom.artifactId@"
     cloud:
       consul:
-          host: 127.0.0.1
-          port: 8500
-          discovery:
-            healthCheckInterval: 15s
-            instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-            healthCheckPath: ${server.contextPath}/health
+        config:
+          format: PROPERTIES
+        host: 127.0.0.1
+        port: 8500
+        discovery:
+          healthCheckInterval: 15s
+          instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+          healthCheckPath: ${server.contextPath}/health
       output:
         ansi:
           enabled: ALWAYS
