@@ -1,7 +1,8 @@
 <configuration>
 
     <!--property file="${info.app.name}.properties"/-->
-    <property resource="bootstrap.yml"/>
+    <!--property resource="bootstrap.yml"/-->
+    <property file="bootstrap.properties"/>
 
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
