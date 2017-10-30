@@ -1,6 +1,6 @@
 ---
 #logging:
-#  file: "../log/${spring.application.name}-application.log"
+#  file: "../logs/${spring.application.name}-application.log"
 
 app:
   log:
@@ -33,8 +33,8 @@ spring:
         ansi:
           enabled: ALWAYS
 
-endpoints:
-  health:
-    sensitive: false
+#endpoints:
+#  health:
+#    sensitive: false
 #  jmx:
 #    unique-names: true
