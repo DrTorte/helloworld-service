@@ -11,8 +11,8 @@ app:
 #  contextPath: "helloworld"
 
 spring:
-#    application:
-#      name: "@pom.artifactId@"
+    application:
+      name: "@pom.artifactId@"
     cloud:
       consul:
         config:
@@ -21,12 +21,14 @@ spring:
           defaultContext: apps
           profileSeparator: '::'
           format: PROPERTIES
-        host: 127.0.0.1
+        #host: 127.0.0.1
+        host: 52.65.117.108
         port: 8500
         discovery:
-          healthCheckInterval: 15s
+          healthCheckInterval: 10s
           instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-          healthCheckPath: ${server.contextPath}/health
+          healthCheckPath: '/helloworld/info'
+#          healthCheckPath: ${server.contextPath}/health
       output:
         ansi:
           enabled: ALWAYS
