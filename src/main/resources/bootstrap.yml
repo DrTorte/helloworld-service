@@ -21,8 +21,8 @@ spring:
           defaultContext: apps
           profileSeparator: '::'
           format: PROPERTIES
-        #host: 127.0.0.1
-        host: 52.65.117.108
+        host: 127.0.0.1
+#        host: 52.65.117.108
         port: 8500
         discovery:
           healthCheckInterval: 10s
