@@ -16,6 +16,10 @@ spring:
     cloud:
       consul:
         config:
+          enabled: true
+          prefix: configuration
+          defaultContext: apps
+          profileSeparator: '::'
           format: PROPERTIES
         host: 127.0.0.1
         port: 8500
