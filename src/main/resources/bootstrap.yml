@@ -6,9 +6,9 @@ app:
   log:
     path: "../logs"
 
-server:
-  port: 8080
-  contextPath: helloworld
+#server:
+#  port: 8080
+#  contextPath: "helloworld"
 
 spring:
 #    application:
