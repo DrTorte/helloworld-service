@@ -27,8 +27,8 @@ spring:
         discovery:
           healthCheckInterval: 10s
           instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-          healthCheckPath: '/helloworld/info'
-#          healthCheckPath: ${server.contextPath}/health
+          healthCheckPath: '/helloworld/health'
+#          healthCheckPath: '/${server.contextPath}/health'
       output:
         ansi:
           enabled: ALWAYS
