@@ -29,7 +29,8 @@
         <logback.version>1.1.7</logback.version>
         <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-        <sonar.jacoco.reportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPath>
+        <sonar.jacoco.reportPaths>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPaths>
+        <sonar.projectKey>nz.co.skytv:helloworld-service</sonar.projectKey>
     </properties>
 
     <dependencyManagement>
@@ -150,7 +151,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -185,6 +185,22 @@
             </plugin>
 
             <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <format>ALL</format>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
@@ -199,7 +215,7 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.5.3</version>
                 <configuration>
-                    <tagBase>scm:git:ssh://git@bitbucket.skynz-dev-ci.skytv.co.nz:8444/hel/hello.git</tagBase>
+                    <tagBase>${project.scm.connection}</tagBase>
                     <tagNameFormat>@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
@@ -273,7 +289,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <destFile>${sonar.jacoco.reportPath}</destFile>
+                    <destFile>${sonar.jacoco.reportPaths}</destFile>
                 </configuration>
             </plugin>
 
@@ -304,13 +320,9 @@
                 <configuration>
                     <executable>mvn</executable>
                     <arguments>
-                        <!-- Run the clean maven lifecycle -->
                         <argument>clean</argument>
-                        <!-- Generate the artifact -->
                         <argument>package</argument>
-                        <!-- Run/re-run spring-boot -->
                         <argument>spring-boot:run</argument>
-                        <!-- Enable colored console fonts -->
                         <argument>-Dspring.output.ansi.enabled=ALWAYS</argument>
                     </arguments>
                 </configuration>
@@ -354,41 +366,41 @@
     </reporting>
 
     <profiles>
-        <profile>
-            <!--Profile to build and release GIT master branch ad upload the WAR into Artifactory-->
-            <id>profile-master</id>
-            <activation>
-                <property>
-                    <name>bambooBranchName</name>
-                    <value>master</value>
-                </property>
-            </activation>
-            <distributionManagement>
-                <repository>
-                    <id>sky-releases</id>
-                    <name>artifactory.skynz-dev-ci.skytv.co.nz-releases</name>
-                    <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-releases</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-        <profile>
-            <!--Profile to build and release GIT CI branch ad upload the WAR into Artifactory-->
-            <id>profile-ci</id>
-            <activation>
-                <property>
-                    <name>bambooBranchName</name>
-                    <value>ci</value>
-                </property>
-            </activation>
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>sky-snapshots</id>
-                    <name>artifactory.skynz-dev-ci.skytv.co.nz-snapshots</name>
-                    <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-snapshots</url>
-                </snapshotRepository>
-            </distributionManagement>
-        </profile>
-    </profiles>
+    <profile>
+        <!--Profile to build and release GIT master branch ad upload the WAR into Artifactory-->
+        <id>profile-master</id>
+        <activation>
+            <property>
+                <name>bambooBranchName</name>
+                <value>master</value>
+            </property>
+        </activation>
+        <distributionManagement>
+            <repository>
+                <id>sky-releases</id>
+                <name>artifactory.skynz-dev-ci.skytv.co.nz-releases</name>
+                <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-releases</url>
+            </repository>
+        </distributionManagement>
+    </profile>
+    <profile>
+        <!--Profile to build and release GIT CI branch ad upload the WAR into Artifactory-->
+        <id>profile-ci</id>
+        <activation>
+            <property>
+                <name>bambooBranchName</name>
+                <value>ci</value>
+            </property>
+        </activation>
+        <distributionManagement>
+            <snapshotRepository>
+                <id>sky-snapshots</id>
+                <name>artifactory.skynz-dev-ci.skytv.co.nz-snapshots</name>
+                <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-snapshots</url>
+            </snapshotRepository>
+        </distributionManagement>
+    </profile>
+</profiles>
 
     <!--specifies where (and how) this project will get to a remote repository when it is deployed-->
     <distributionManagement>
