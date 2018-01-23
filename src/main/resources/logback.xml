@@ -1,5 +1,6 @@
 <configuration>
 
+    <property resource="build.properties" />
     <!--property file="${info.app.name}.properties"/-->
     <!--property resource="bootstrap.yml"/-->
     <property resource="bootstrap.properties"/>

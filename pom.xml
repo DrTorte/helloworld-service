@@ -15,8 +15,8 @@
     </organization>
 
     <scm>
-        <developerConnection>scm:git:ssh://git@bitbucket.skynz-dev-ci.skytv.co.nz:8444/hel/hello.git</developerConnection>
         <connection>scm:git:ssh://git@bitbucket.skynz-dev-ci.skytv.co.nz:8444/hel/hello.git</connection>
+        <developerConnection>${project.scm.connection}</developerConnection>
         <url>http://bitbucket.skynz-dev-ci.skytv.co.nz:7990/bitbucket/projects/HEL/repos/hello/browse</url>
         <tag>HEAD</tag>
     </scm>
@@ -26,7 +26,6 @@
         <springfox.version>2.3.0</springfox.version>
         <spring-boot.version>1.4.2.RELEASE</spring-boot.version>
         <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
-        <logback.version>1.1.7</logback.version>
         <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.jacoco.reportPaths>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPaths>
@@ -46,38 +45,9 @@
         </dependencies>
     </dependencyManagement>
 
-    <repositories>
-        <repository>
-            <id>maven.oracle.com</id>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>never</updatePolicy>
-            </snapshots>
-            <url>https://maven.oracle.com</url>
-            <layout>default</layout>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>maven.oracle.com</id>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <url>https://maven.oracle.com</url>
-            <layout>default</layout>
-        </pluginRepository>
-    </pluginRepositories>
-
     <dependencies>
         <!-- Consul -->
-        <dependency>
+        <!--dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-consul-config</artifactId>
             <version>1.0.2.RELEASE</version>
@@ -86,7 +56,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-consul-discovery</artifactId>
             <version>1.0.2.RELEASE</version>
-        </dependency>
+        </dependency-->
         
 	    <!-- Spring Boot Dependencies -->
         <dependency>
@@ -106,26 +76,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-jasper</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Logging dependencies -->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
-        </dependency>
-
-        <!-- Servlet Context -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet.version}</version>
         </dependency>
 
         <!-- Swagger -->
@@ -239,7 +189,7 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                     <packagingExcludes>
                         WEB-INF/lib/tomcat-*.jar,
-                        WEB-INF/classes/helloworld-service.properties*
+                        WEB-INF/classes/${project.name}.properties*
                     </packagingExcludes>
                 </configuration>
             </plugin>
