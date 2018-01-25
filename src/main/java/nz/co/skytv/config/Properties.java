@@ -3,15 +3,14 @@ package nz.co.skytv.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 
 @Configuration  // application.properties is used by default, if it exists
-@PropertySource(value = "classpath:build.properties")
-/*
+//@PropertySource(value = "classpath:build.properties")
 @PropertySources({
         @PropertySource(value = "file:helloworld-service.properties"),
         @PropertySource(value = "classpath:build.properties")
 })
-*/
 public class Properties {
     @Value("${info.app.name}")
     private String name;
