@@ -30,6 +30,9 @@
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.jacoco.reportPaths>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPaths>
         <sonar.projectKey>nz.co.skytv:helloworld-service</sonar.projectKey>
+        <sonar.coverage.exclusions> <!-- the members of the following list should be in the same line -->
+            src/main/java/nz/co/skytv/mac/metadata/dto/*.java,src/main/java/nz/co/skytv/mac/metadata/config/*.java,src/main/java/nz/co/skytv/mac/metadata/exception/*.java,src/main/java/nz/co/skytv/mac/metadata/model/*.java,src/main/java/nz/co/skytv/mac/metadata/util/*.java,src/main/java/nz/co/skytv/mac/metadata/component/MethodLogger.java,src/main/java/nz/co/skytv/mac/metadata/Bootstrap.java,src/main/java/nz/co/skytv/mac/metadata/repository/GracenoteTVProgramRepositoryImpl.java,src/main/java/nz/co/skytv/mac/metadata/controller/GracenoteTvProgramsController.java,src/main/java/nz/co/skytv/mac/metadata/controller/Mac*.java
+        </sonar.coverage.exclusions>
     </properties>
 
     <dependencyManagement>
