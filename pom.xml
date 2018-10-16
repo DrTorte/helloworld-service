@@ -15,8 +15,8 @@
     </organization>
 
     <scm>
-        <developerConnection>scm:git:ssh://git@bitbucket.skynz-dev-ci.skytv.co.nz:8444/hel/hello.git</developerConnection>
         <connection>scm:git:ssh://git@bitbucket.skynz-dev-ci.skytv.co.nz:8444/hel/hello.git</connection>
+        <developerConnection>${project.scm.connection}</developerConnection>
         <url>http://bitbucket.skynz-dev-ci.skytv.co.nz:7990/bitbucket/projects/HEL/repos/hello/browse</url>
         <tag>HEAD</tag>
     </scm>
@@ -26,10 +26,10 @@
         <springfox.version>2.3.0</springfox.version>
         <spring-boot.version>1.4.2.RELEASE</spring-boot.version>
         <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
-        <logback.version>1.1.7</logback.version>
         <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-        <sonar.jacoco.reportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPath>
+        <sonar.jacoco.reportPaths>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPaths>
+        <sonar.projectKey>nz.co.skytv:helloworld-service</sonar.projectKey>
     </properties>
 
     <dependencyManagement>
@@ -45,36 +45,18 @@
         </dependencies>
     </dependencyManagement>
 
-    <repositories>
-        <repository>
-            <id>maven.oracle.com</id>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>never</updatePolicy>
-            </snapshots>
-            <url>https://maven.oracle.com</url>
-            <layout>default</layout>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>maven.oracle.com</id>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <url>https://maven.oracle.com</url>
-            <layout>default</layout>
-        </pluginRepository>
-    </pluginRepositories>
-
     <dependencies>
+        <!-- Consul -->
+        <!--dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-config</artifactId>
+            <version>1.0.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+            <version>1.0.2.RELEASE</version>
+        </dependency-->
         
 	    <!-- Spring Boot Dependencies -->
         <dependency>
@@ -94,26 +76,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-jasper</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Logging dependencies -->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
-        </dependency>
-
-        <!-- Servlet Context -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet.version}</version>
         </dependency>
 
         <!-- Swagger -->
@@ -139,7 +101,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -173,6 +134,22 @@
                 </configuration>
             </plugin>
 
+            <!--plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <format>ALL</format>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin-->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -188,7 +165,7 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.5.3</version>
                 <configuration>
-                    <tagBase>scm:git:ssh://git@bitbucket.skynz-dev-ci.skytv.co.nz:8444/hel/hello.git</tagBase>
+                    <tagBase>${project.scm.connection}</tagBase>
                     <tagNameFormat>@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
@@ -212,7 +189,7 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                     <packagingExcludes>
                         WEB-INF/lib/tomcat-*.jar,
-                        WEB-INF/classes/helloworld-service.properties*
+                        WEB-INF/classes/${project.name}.properties*
                     </packagingExcludes>
                 </configuration>
             </plugin>
@@ -262,7 +239,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <destFile>${sonar.jacoco.reportPath}</destFile>
+                    <destFile>${sonar.jacoco.reportPaths}</destFile>
                 </configuration>
             </plugin>
 
@@ -293,13 +270,9 @@
                 <configuration>
                     <executable>mvn</executable>
                     <arguments>
-                        <!-- Run the clean maven lifecycle -->
                         <argument>clean</argument>
-                        <!-- Generate the artifact -->
                         <argument>package</argument>
-                        <!-- Run/re-run spring-boot -->
                         <argument>spring-boot:run</argument>
-                        <!-- Enable colored console fonts -->
                         <argument>-Dspring.output.ansi.enabled=ALWAYS</argument>
                     </arguments>
                 </configuration>
@@ -343,41 +316,41 @@
     </reporting>
 
     <profiles>
-        <profile>
-            <!--Profile to build and release GIT master branch ad upload the WAR into Artifactory-->
-            <id>profile-master</id>
-            <activation>
-                <property>
-                    <name>bambooBranchName</name>
-                    <value>master</value>
-                </property>
-            </activation>
-            <distributionManagement>
-                <repository>
-                    <id>sky-releases</id>
-                    <name>artifactory.skynz-dev-ci.skytv.co.nz-releases</name>
-                    <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-releases</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-        <profile>
-            <!--Profile to build and release GIT CI branch ad upload the WAR into Artifactory-->
-            <id>profile-ci</id>
-            <activation>
-                <property>
-                    <name>bambooBranchName</name>
-                    <value>ci</value>
-                </property>
-            </activation>
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>sky-snapshots</id>
-                    <name>artifactory.skynz-dev-ci.skytv.co.nz-snapshots</name>
-                    <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-snapshots</url>
-                </snapshotRepository>
-            </distributionManagement>
-        </profile>
-    </profiles>
+    <profile>
+        <!--Profile to build and release GIT master branch ad upload the WAR into Artifactory-->
+        <id>profile-master</id>
+        <activation>
+            <property>
+                <name>bambooBranchName</name>
+                <value>master</value>
+            </property>
+        </activation>
+        <distributionManagement>
+            <repository>
+                <id>sky-releases</id>
+                <name>artifactory.skynz-dev-ci.skytv.co.nz-releases</name>
+                <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-releases</url>
+            </repository>
+        </distributionManagement>
+    </profile>
+    <profile>
+        <!--Profile to build and release GIT CI branch ad upload the WAR into Artifactory-->
+        <id>profile-ci</id>
+        <activation>
+            <property>
+                <name>bambooBranchName</name>
+                <value>ci</value>
+            </property>
+        </activation>
+        <distributionManagement>
+            <snapshotRepository>
+                <id>sky-snapshots</id>
+                <name>artifactory.skynz-dev-ci.skytv.co.nz-snapshots</name>
+                <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-snapshots</url>
+            </snapshotRepository>
+        </distributionManagement>
+    </profile>
+</profiles>
 
     <!--specifies where (and how) this project will get to a remote repository when it is deployed-->
     <distributionManagement>

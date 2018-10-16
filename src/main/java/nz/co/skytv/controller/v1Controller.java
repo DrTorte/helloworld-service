@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiResponses;
 import nz.co.skytv.model.GenericResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +22,9 @@ import java.net.HttpURLConnection;
 public class v1Controller {
     private static final Logger LOG = LoggerFactory.getLogger(v1Controller.class);
 
+    @Value("${test.variable:HelloWorld}")
+    private String appname;
+
     @ApiOperation(value = "Returns a hello message",notes = "Returns a hello message.")
     @ApiResponses({
             @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "The request was successful."),
@@ -30,6 +34,6 @@ public class v1Controller {
     @RequestMapping(value = "/message",method = RequestMethod.GET)
     @ResponseBody
     public GenericResponse<String> message() {
-        return new GenericResponse<String>().withData("hello world!!");
+        return new GenericResponse<String>().withData("this is the "+appname+" app!!");
     }
 }

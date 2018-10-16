@@ -1,0 +1,39 @@
+---
+#logging:
+#  file: "../logs/${spring.application.name}-application.log"
+
+app:
+  log:
+    path: "../logs"
+
+server:
+  port: 8080
+  contextPath: "/helloworld"
+
+spring:
+    application:
+      name: "@pom.artifactId@"
+    cloud:
+      consul:
+        config:
+          enabled: true
+          prefix: configuration
+          defaultContext: apps
+          profileSeparator: '::'
+          format: PROPERTIES
+        host: 127.0.0.1
+#        host: 52.65.117.108
+        port: 8500
+        discovery:
+          healthCheckInterval: 10s
+          instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+          healthCheckPath: '${server.contextPath}/health'
+      output:
+        ansi:
+          enabled: ALWAYS
+
+#endpoints:
+#  health:
+#    sensitive: false
+#  jmx:
+#    unique-names: true
