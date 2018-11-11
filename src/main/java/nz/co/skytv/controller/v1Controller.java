@@ -22,7 +22,7 @@ import java.net.HttpURLConnection;
 public class v1Controller {
     private static final Logger LOG = LoggerFactory.getLogger(v1Controller.class);
 
-    @Value("${test.variable:HelloWorld}")
+    @Value("${test.variable:helloworld-service}")
     private String appname;
 
     @ApiOperation(value = "Returns a hello message",notes = "Returns a hello message.")
