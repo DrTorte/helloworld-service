@@ -20,7 +20,7 @@ import java.net.HttpURLConnection;
 @RequestMapping(value = "/v1", produces = MediaType.APPLICATION_JSON_VALUE)
 @Api(tags = "v1 Controller", description = "Controller that serves v1 endpoints", produces = "application/json")
 public class v1Controller {
-    private static final Logger LOG = LoggerFactory.getLogger(v1Controller.class);
+    private static final Logger logger = LoggerFactory.getLogger(v1Controller.class);
 
     @Value("${test.variable:helloworld-service}")
     private String appname;
