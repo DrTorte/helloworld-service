@@ -19,13 +19,13 @@
         </encoder>
     </appender>
 
-    <appender name="APPLICATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>${app.log.path}/hello-world-application.log</File>
+    <!--appender name="APPLICATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${app.log.path}/${info.app.name}-application.log</File>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>TRACE</level>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>${app.log.path}/hello-world-application.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>${app.log.path}/${info.app.name}-application.%d{yyyy-MM-dd}.log</FileNamePattern>
             <MaxHistory>90</MaxHistory>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
@@ -34,18 +34,18 @@
     </appender>
 
     <appender name="ERRORS" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>${app.log.path}/hello-world-event.log</File>
+        <File>${app.log.path}/${info.app.name}-event.log</File>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>ERROR</level>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>${app.log.path}/hello-world-event.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>${app.log.path}/${info.app.name}-event.%d{yyyy-MM-dd}.log</FileNamePattern>
             <MaxHistory>90</MaxHistory>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%d{yyyy-MM-dd} %d{HH:mm:ss} %.-1level %thread %logger{36}: %m%n</pattern>
         </encoder>
-    </appender>
+    </appender-->
 
 
     <!-- The root logger goes to the standard application log and the error log -->

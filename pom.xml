@@ -316,41 +316,41 @@
     </reporting>
 
     <profiles>
-    <profile>
-        <!--Profile to build and release GIT master branch ad upload the WAR into Artifactory-->
-        <id>profile-master</id>
-        <activation>
-            <property>
-                <name>bambooBranchName</name>
-                <value>master</value>
-            </property>
-        </activation>
-        <distributionManagement>
-            <repository>
-                <id>sky-releases</id>
-                <name>artifactory.skynz-dev-ci.skytv.co.nz-releases</name>
-                <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-releases</url>
-            </repository>
-        </distributionManagement>
-    </profile>
-    <profile>
-        <!--Profile to build and release GIT CI branch ad upload the WAR into Artifactory-->
-        <id>profile-ci</id>
-        <activation>
-            <property>
-                <name>bambooBranchName</name>
-                <value>ci</value>
-            </property>
-        </activation>
-        <distributionManagement>
-            <snapshotRepository>
-                <id>sky-snapshots</id>
-                <name>artifactory.skynz-dev-ci.skytv.co.nz-snapshots</name>
-                <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-snapshots</url>
-            </snapshotRepository>
-        </distributionManagement>
-    </profile>
-</profiles>
+        <profile>
+            <!--Profile to build and release GIT master branch ad upload the WAR into Artifactory-->
+            <id>profile-master</id>
+            <activation>
+                <property>
+                    <name>bambooBranchName</name>
+                    <value>master</value>
+                </property>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>sky-releases</id>
+                    <name>artifactory.skynz-dev-ci.skytv.co.nz-releases</name>
+                    <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-releases</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+        <profile>
+            <!--Profile to build and release GIT CI branch ad upload the WAR into Artifactory-->
+            <id>profile-ci</id>
+            <activation>
+                <property>
+                    <name>bambooBranchName</name>
+                    <value>ci</value>
+                </property>
+            </activation>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>sky-snapshots</id>
+                    <name>artifactory.skynz-dev-ci.skytv.co.nz-snapshots</name>
+                    <url>http://artifactory.skynz-dev-ci.skytv.co.nz/artifactory/sky-snapshots</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+    </profiles>
 
     <!--specifies where (and how) this project will get to a remote repository when it is deployed-->
     <distributionManagement>
