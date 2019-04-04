@@ -10,16 +10,16 @@
 
     <property name="CONSOLE_LOG_PATTERN" value="%d{yyyy-MM-dd} %d{HH:mm:SSS} %.-5level %thread %X{X-B3-TraceId:-} ${spring.application.name} %logger{36}: %m%n"/>
 	
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+<!--    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>DEBUG</level>
         </filter>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%d{yyyy-MM-dd} %d{HH:mm:ss} %.-1level %thread %logger{36}: %m%n</pattern>
         </encoder>
-    </appender>
+    </appender>-->
 
-    <!--appender name="APPLICATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="APPLICATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <File>${app.log.path}/${info.app.name}-application.log</File>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>TRACE</level>
@@ -45,15 +45,14 @@
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%d{yyyy-MM-dd} %d{HH:mm:ss} %.-1level %thread %logger{36}: %m%n</pattern>
         </encoder>
-    </appender-->
-
+    </appender>
 
     <!-- The root logger goes to the standard application log and the error log -->
     <root level="info">
         <appender-ref ref="APPLICATION" />
         <appender-ref ref="ERRORS" />
+        <!--<appender-ref ref="CONSOLE" />-->
     </root>
-
 
     <logger name="nz.co.sky" level="TRACE"/>
 </configuration>
