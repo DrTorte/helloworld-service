@@ -1,5 +1,5 @@
 
-# prepare the app's image
+#  prepare the app's image
 FROM openjdk:8-jdk-alpine
 
 # copy the init script
